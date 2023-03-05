@@ -11,7 +11,7 @@ is_number () {
         return 0
     fi
     
-    echo "Количество дней должно быть целым, положительным числм."
+    echo "Количество дней должно быть целым, положительным числом." >&2
     return 1
 }
 
@@ -48,13 +48,14 @@ main () {
             
             passwd $targetUser
             passwd -n $minDays -x $maxDays $targetUser 
-            read -p "Продолжить? (y/n)" userDecision
+            read -p "Продолжить? (y/n): " userDecision
             if [ ! "$userDecision" = "y" ] || [ ! "$userDecision" = "Y"]; then
                 echo "Выход ..."
                 return 1
             fi
         else
-            read -p "Пользователь $targetUser не существует. Попробовать еще раз? (y/n): " userDecision
+            echo "Пользователь $targetUser не существует." >&2
+            read -p "Попробовать еще раз? (y/n): " userDecision
             if [ ! "$userDecision" = "y" ] || [ ! "$userDecision" = "Y"]; then
                 echo "Выход (изменения не применены) ..."
                 return 1
