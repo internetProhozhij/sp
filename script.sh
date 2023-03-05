@@ -46,8 +46,8 @@ main () {
                 break
             done
             
-            sudo passwd $targetUser
-            sudo passwd -n $minDays -x $maxDays $targetUser 
+            passwd $targetUser
+            passwd -n $minDays -x $maxDays $targetUser 
             read -p "Продолжить? (y/n)" userDecision
             if [ ! "$userDecision" = "y" ] || [ ! "$userDecision" = "Y"]; then
                 echo "Выход ..."
