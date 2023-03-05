@@ -31,6 +31,7 @@ main () {
                         return 1
                     fi
                 fi
+                break
             done
 
             while true; do
@@ -42,6 +43,7 @@ main () {
                         return 1
                     fi
                 fi
+                break
             done
             
             sudo passwd $targetUser
