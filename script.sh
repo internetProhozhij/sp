@@ -16,10 +16,9 @@ is_number () {
 }
 
 main () {
-    info 
-    read -p "Имя пользователя: " targetUser
-    
+    info    
     while true; do
+        read -p "Имя пользователя: " targetUser
         does_exist=$(grep -c $targetUser /etc/passwd)
         if [ $does_exist -gt 0 ]; then
             while true; do
