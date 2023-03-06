@@ -55,7 +55,7 @@ main () {
         else
             echo "Пользователь $targetUser не существует." >&2
             read -p "Попробовать еще раз? (y/n): " userDecision
-            if [ ! "$userDecision" = "y" ] || [ ! "$userDecision" = "Y"]; then
+            if [ "$userDecision" != "y" ] || [ "$userDecision" != "Y"]; then
                 echo "Выход (изменения не применены) ..."
                 return 1
             fi
