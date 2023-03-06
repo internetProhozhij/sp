@@ -25,7 +25,7 @@ main () {
                 read -p "Минимальное время жизни пароля (в днях): " minDays
                 if ! is_number $minDays; then
                     read -p "Попробовать еще раз? (y/n): " userDecision
-                    if [ ! "$userDecision" = "y" ] || [ ! "$userDecision" = "Y"]; then
+                    if [ "$userDecision" != "y" ] || [ "$userDecision" != "Y"]; then
                         echo "Выход (изменения не применены) ..."
                         return 1
                     fi
@@ -37,7 +37,7 @@ main () {
                 read -p "Максимальное время жизни пароля (в днях): " maxDays
                 if ! is_number $maxDays; then
                     read -p "Попробовать еще раз? (y/n): " userDecision
-                    if [ ! "$userDecision" = "y" ] || [ ! "$userDecision" = "Y"]; then
+                    if [ "$userDecision" != "y" ] || [ "$userDecision" != "Y"]; then
                         echo "Выход (изменения не применены) ..."
                         return 1
                     fi
@@ -48,7 +48,7 @@ main () {
             passwd $targetUser
             passwd -n $minDays -x $maxDays $targetUser 
             read -p "Продолжить? (y/n): " userDecision
-            if [ ! "$userDecision" = "y" ] || [ ! "$userDecision" = "Y"]; then
+            if [ "$userDecision" != "y" ] || [ "$userDecision" != "Y"]; then
                 echo "Выход ..."
                 return 1
             fi
