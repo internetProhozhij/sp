@@ -25,7 +25,7 @@ main () {
                 read -p "Минимальное время жизни пароля (в днях): " minDays
                 if ! is_number $minDays; then
                     read -p "Попробовать еще раз? (y/n): " userDecision
-                    if [ "$userDecision" != "y" ] || [ "$userDecision" != "Y"]; then
+                    if [ "$userDecision" != "y" ] || [ "$userDecision" != "Y" ]; then
                         echo "Выход (изменения не применены) ..."
                         return 1
                     fi
